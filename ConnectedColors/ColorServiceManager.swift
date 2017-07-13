@@ -22,6 +22,7 @@ class ColorServiceManager : NSObject {
     // and can contain only ASCII lowercase letters, numbers and hyphens.
     private let ColorServiceType = "example-color"
     
+    // Name of person (Currently set as device name)
     private let myPeerId = MCPeerID(displayName: UIDevice.current.name)
     
     private let serviceAdvertiser : MCNearbyServiceAdvertiser

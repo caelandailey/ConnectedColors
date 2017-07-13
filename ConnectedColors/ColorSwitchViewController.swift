@@ -48,11 +48,12 @@ class ColorSwitchViewController: JSQMessagesViewController {
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
         
         let messageItem = [ // 2
-            "senderId": senderId!,
-            "senderName": senderDisplayName!,
+            "senderId": "TestID",
+            "senderName": "TestDisplayName",
             "text": text!,
             ]
-        
+        colorService.send(colorName: text!)
+        addMessage(withId: "foo", name: "Mr.Bolt", text: text!)
         
         JSQSystemSoundPlayer.jsq_playMessageSentSound() // 4
         
@@ -105,7 +106,7 @@ class ColorSwitchViewController: JSQMessagesViewController {
         
         collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
-        collectionView.backgroundColor = UIColor.lightGray
+        collectionView.backgroundColor = UIColor.darkGray
     }
     
     private func setupOutgoingBubble() -> JSQMessagesBubbleImage {
@@ -129,24 +130,10 @@ extension ColorSwitchViewController : ColorServiceManagerDelegate {
     
     func colorChanged(manager: ColorServiceManager, colorString: String) {
         OperationQueue.main.addOperation {
-            switch colorString {
-            case "red":
-                self.change(color: .red)
-                //self.messageLabel.text = self.messageLabel.text! + colorString
-                
-                
-                    
+
                     self.addMessage(withId: "1234", name: "Caelan", text: colorString)
                     
                     self.finishReceivingMessage()
-                
-                
-            case "yellow":
-                self.change(color: .yellow)
-                //self.messageLabel.text = self.messageLabel.text! + colorString
-            default:
-                NSLog("%@", "Unknown color value received: \(colorString)")
-            }
         }
     }
     
