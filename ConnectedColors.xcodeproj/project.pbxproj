@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		388EDDFE1F17016D00BCD166 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388EDDFD1F17016D00BCD166 /* AppDelegate.swift */; };
-		388EDE001F17016D00BCD166 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388EDDFF1F17016D00BCD166 /* ViewController.swift */; };
+		388EDE001F17016D00BCD166 /* ColorSwitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388EDDFF1F17016D00BCD166 /* ColorSwitchViewController.swift */; };
 		388EDE031F17016D00BCD166 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 388EDE011F17016D00BCD166 /* Main.storyboard */; };
 		388EDE051F17016D00BCD166 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 388EDE041F17016D00BCD166 /* Assets.xcassets */; };
 		388EDE081F17016D00BCD166 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 388EDE061F17016D00BCD166 /* LaunchScreen.storyboard */; };
+		388EDE101F17035F00BCD166 /* ColorServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388EDE0F1F17035F00BCD166 /* ColorServiceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		388EDDFA1F17016D00BCD166 /* ConnectedColors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConnectedColors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		388EDDFD1F17016D00BCD166 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		388EDDFF1F17016D00BCD166 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		388EDDFF1F17016D00BCD166 /* ColorSwitchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSwitchViewController.swift; sourceTree = "<group>"; };
 		388EDE021F17016D00BCD166 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		388EDE041F17016D00BCD166 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		388EDE071F17016D00BCD166 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		388EDE091F17016D00BCD166 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		388EDE0F1F17035F00BCD166 /* ColorServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorServiceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +57,8 @@
 			isa = PBXGroup;
 			children = (
 				388EDDFD1F17016D00BCD166 /* AppDelegate.swift */,
-				388EDDFF1F17016D00BCD166 /* ViewController.swift */,
+				388EDDFF1F17016D00BCD166 /* ColorSwitchViewController.swift */,
+				388EDE0F1F17035F00BCD166 /* ColorServiceManager.swift */,
 				388EDE011F17016D00BCD166 /* Main.storyboard */,
 				388EDE041F17016D00BCD166 /* Assets.xcassets */,
 				388EDE061F17016D00BCD166 /* LaunchScreen.storyboard */,
@@ -137,8 +140,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				388EDE001F17016D00BCD166 /* ViewController.swift in Sources */,
+				388EDE001F17016D00BCD166 /* ColorSwitchViewController.swift in Sources */,
 				388EDDFE1F17016D00BCD166 /* AppDelegate.swift in Sources */,
+				388EDE101F17035F00BCD166 /* ColorServiceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
