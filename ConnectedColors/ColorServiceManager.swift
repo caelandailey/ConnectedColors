@@ -12,7 +12,7 @@ import MultipeerConnectivity
 protocol ColorServiceManagerDelegate {
     
     func connectedDevicesChanged(manager : ColorServiceManager, connectedDevices: [String])
-    func colorChanged(manager : ColorServiceManager, colorString: String)
+    func colorChanged(manager : ColorServiceManager, colorString: [String:String])
     
 }
 
@@ -49,16 +49,16 @@ class ColorServiceManager : NSObject {
         self.serviceBrowser.startBrowsingForPeers()
     }
     
-    func send(colorName : String) {
-        NSLog("%@", "sendColor: \(colorName) to \(session.connectedPeers.count) peers")
+    func send(message : [String:String]) {
+        NSLog("%@", "sendColor: \(message) to \(session.connectedPeers.count) peers")
         
         if session.connectedPeers.count > 0 {
             do {
                 
+                let dataExample: Data = NSKeyedArchiver.archivedData(withRootObject: message)
+                //let dictionary: Dictionary? = NSKeyedUnarchiver.unarchiveObject(with: dataExample) as? [String : String]
                 
-                
-                try self.session.send(colorName.data(using: .utf8)!, toPeers: session.connectedPeers, with: .reliable)
-                
+                try self.session.send(dataExample, toPeers: session.connectedPeers, with: .reliable)
                 
                 
             }
@@ -117,8 +117,12 @@ extension ColorServiceManager : MCSessionDelegate {
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         NSLog("%@", "didReceiveData: \(data)")
-        let str = String(data: data, encoding: .utf8)!
-        self.delegate?.colorChanged(manager: self, colorString: str)
+        
+        //let str = String(data: data, encoding: .utf8)!
+        
+        if let dictionary = NSKeyedUnarchiver.unarchiveObject(with: data) as? [String : String] {
+            self.delegate?.colorChanged(manager: self, colorString: dictionary)
+        }
     }
     
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
